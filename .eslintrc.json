@@ -1,0 +1,19 @@
+{
+  "env": {
+    "commonjs": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": ["airbnb-base", "prettier", "plugin:node/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "object-shorthand": "off",
+    "func-names": "off",
+    "consistent-return": "off",
+    "prefer-destructuring": "off",
+    "no-param-reassign": "off"
+  }
+}
