@@ -11,6 +11,6 @@ Cloning Mechanisim:
 
 -> git init
 
--> git remote add origin 'url'
+-> git remote add origin https://github.com/LionelGokul/Ecommerce_backend.git
 
 -> git pull origin
