@@ -14,6 +14,7 @@ const getUSers = asyncHandler(async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 // create user
 const createUser = asyncHandler(async (req, res) => {
   try {
@@ -35,7 +36,7 @@ const getUserbyId = asyncHandler(async (req, res) => {
     const reqUser = await FindUserbyId(req.params.id);
     res.status(200).json({ requestedUser: reqUser });
   } catch (err) {
-    res.status(404);
+    res.status(500);
     throw new Error('User not found');
   }
 });
