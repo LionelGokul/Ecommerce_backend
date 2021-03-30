@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express();
-const port = 5000;
+const dotenv = require('dotenv');
 
+const app = express();
+const port = process.env.PORT || 5000;
+dotenv.config();
+const initRoutes = require('./routes/init');
 // importing db connection
 const connectDB = require('./db');
 // parse application/json
@@ -10,7 +13,7 @@ const connectDB = require('./db');
 connectDB.on('error', console.error.bind(console, 'connection error:'));
 connectDB.once('open', function () {
   app.use(bodyParser.json());
-  const initRoutes = require('./routes/init');
+
   initRoutes(app);
 
   app.listen(port, () => {

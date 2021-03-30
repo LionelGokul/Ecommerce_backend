@@ -1,4 +1,5 @@
 const { userModel } = require('../models/init');
+const asyncHandler = require('express-async-handler');
 
 const getAllUsers = async () => {
   const users = await userModel.find({});
@@ -17,4 +18,13 @@ const insertUser = async user => {
   return newUser;
 };
 
-module.exports = { getAllUsers, insertUser };
+const FindUserbyId = async id => {
+  const user = await userModel.findById(id);
+  try {
+    if (user) return user;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports = { getAllUsers, insertUser, FindUserbyId };
