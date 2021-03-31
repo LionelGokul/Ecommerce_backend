@@ -1,7 +1,12 @@
 const express = require('express');
 const userRoutes = express.Router();
-const { getUSers, createUser } = require('../controllers/userController');
+const {
+  getUSers,
+  createUser,
+  getUserbyId,
+} = require('../controllers/userController');
 const validateRequestBody = require('../middleware/validateReqBodyMiddleware');
+
 const {
   createUserValidation,
 } = require('../controllers/validations/userControllerValidator');
@@ -12,5 +17,6 @@ userRoutes.get('/', [], getUSers);
 
 userRoutes.use(validateRequestBody);
 userRoutes.post('/new', [...createUserValidation], createUser);
+userRoutes.get('/:id', getUserbyId);
 
 module.exports = userRoutes;
